@@ -34,7 +34,7 @@ public class Main {
         }
         out.println("Добавленные товары:");
         for (int j = 0; j < i; j++)
-            out.println(pos[j].name + " " + pos[j].price + " рублей ");
+            out.println(pos[j].name + " " + pos[j].price + " рублей");
         double sum = 0;
         for (int j = 0; j < i; j++)
             sum += pos[j].price;
