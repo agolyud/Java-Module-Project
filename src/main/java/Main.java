@@ -6,8 +6,6 @@ public class Main {
     public static PrintStream out = System.out;
 
     public static void main(String[] args) {
-        // ваш код начнется здесь
-        // вы не должны ограничиваться только классом Main и можете создавать свои классы по необходимости
         System.out.println("Привет Мир");
         out.println("На скольких человек необходимо разделить счёт.");
         int persons = in.nextInt();
