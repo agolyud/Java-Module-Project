@@ -1,7 +1,7 @@
-public class cal {
+public class Calculator {
     String name;
     double price;
-    cal(String dishName, double dishPrice){
+    Calculator(String dishName, double dishPrice){
         name = dishName;
         price = dishPrice;
     }

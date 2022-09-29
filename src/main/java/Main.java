@@ -13,7 +13,7 @@ public class Main {
             out.println("Количество человек меньше 1. Это некорректное значение для подсчёта.");
             persons = in.nextInt();
         }
-        cal[] pos = new cal[100];
+        Calculator[] pos = new Calculator[100];
         out.println("Введите название товара");
         String nextPosition = in.next();
         out.println("Введите стоимость в формате: 'рубли.копейки' [10,45, 11,40]");
@@ -22,7 +22,7 @@ public class Main {
         while (!nextPosition.equalsIgnoreCase("Завершить")) {
             out.println("Хотите еще добавить товар?, если да то Введите название товара" +
                     "\nДля завершения введите 'Завершить'");
-            pos[i] = new cal(nextPosition, nextPrice);
+            pos[i] = new Calculator(nextPosition, nextPrice);
             nextPosition = in.next();
             if (!nextPosition.equalsIgnoreCase("Завершить")) {
                 out.println("Введите стоимость в формате: 'рубли.копейки' [10,45, 11,40]");
@@ -37,7 +37,20 @@ public class Main {
         for (int j = 0; j < i; j++)
             sum += pos[j].price;
 
-        out.println(("Итоговая сумма: ") + String.format("%.2f", sum / persons) + " рублей");
+         double amout = sum / persons;
+            int ruble = (int) Math.floor(amout);
+            String endingRuble;
+
+            if (ruble % 10 == 1) {
+                endingRuble = "рубль";
+            } else if (ruble % 10 == 2 || ruble % 10 == 3 || ruble % 10 == 4) {
+                endingRuble = "рубля";
+            } else endingRuble = "рублей";
+
+            out.println("Каждый из гостей должен заплатить:" + " " + String.format("%.2f", amout) + " " + endingRuble);
+
+        }
+
     }
 
-}
+
