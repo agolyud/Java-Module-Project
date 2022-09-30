@@ -1,4 +1,6 @@
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Main {
 
@@ -13,8 +15,9 @@ public class Main {
             out.println("Количество человек меньше 1. Это некорректное значение для подсчёта.");
             persons = in.nextInt();
         }
-        Calculator[] pos = new Calculator[100];
-        out.println("Введите название товара");
+
+        List<Calculator> items = new ArrayList<>();
+         out.println("Введите название товара");
         String nextPosition = in.next();
         out.println("Введите стоимость в формате: 'рубли.копейки' [10,45, 11,40]");
         double nextPrice = in.nextDouble();
@@ -22,7 +25,7 @@ public class Main {
         while (!nextPosition.equalsIgnoreCase("Завершить")) {
             out.println("Хотите еще добавить товар?, если да то Введите название товара" +
                     "\nДля завершения введите 'Завершить'");
-            pos[i] = new Calculator(nextPosition, nextPrice);
+            items.add(new Calculator(nextPosition, nextPrice));
             nextPosition = in.next();
             if (!nextPosition.equalsIgnoreCase("Завершить")) {
                 out.println("Введите стоимость в формате: 'рубли.копейки' [10,45, 11,40]");
@@ -32,21 +35,25 @@ public class Main {
         }
         double sum = 0;
         for (int j = 0; j < i; j++)
-            sum += pos[j].price;
+        sum += items.get(j).price;
         double amout = sum / persons;
         int ruble = (int) Math.floor(amout);
         String endingRuble;
 
-        if (ruble == 1) {
-            endingRuble = "рубль";
-        } else if (ruble  == 2 || ruble == 3 || ruble == 4) {
-            endingRuble = "рубля";
-
-        } else endingRuble = "рублей";
+        switch ((int) ruble % 10) {
+            case 1:
+                endingRuble = "рубль";
+            case 2:
+            case 3:
+            case 4:
+                endingRuble = "рубля";
+            default:
+                endingRuble = "рублей";
+        }
 
         out.println("Добавленные товары:");
         for (int j = 0; j < i; j++)
-        out.println(pos[j].name + " " + pos[j].price + " " + endingRuble);
+        out.println(items.get(j).name + " " + items.get(j).price + " " + endingRuble);
 
         out.println("Каждый из гостей должен заплатить:" + " " + String.format("%.2f", amout) + " " + endingRuble);
 
