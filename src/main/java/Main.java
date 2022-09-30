@@ -30,24 +30,25 @@ public class Main {
             }
             i += 1;
         }
-        out.println("Добавленные товары:");
-        for (int j = 0; j < i; j++)
-            out.println(pos[j].name + " " + pos[j].price + " рублей");
         double sum = 0;
         for (int j = 0; j < i; j++)
             sum += pos[j].price;
+        double amout = sum / persons;
+        int ruble = (int) Math.floor(amout);
+        String endingRuble;
 
-         double amout = sum / persons;
-            int ruble = (int) Math.floor(amout);
-            String endingRuble;
+        if (ruble == 1) {
+            endingRuble = "рубль";
+        } else if (ruble  == 2 || ruble == 3 || ruble == 4) {
+            endingRuble = "рубля";
 
-            if (ruble % 10 == 1) {
-                endingRuble = "рубль";
-            } else if (ruble % 10 == 2 || ruble % 10 == 3 || ruble % 10 == 4) {
-                endingRuble = "рубля";
-            } else endingRuble = "рублей";
+        } else endingRuble = "рублей";
 
-            out.println("Каждый из гостей должен заплатить:" + " " + String.format("%.2f", amout) + " " + endingRuble);
+        out.println("Добавленные товары:");
+        for (int j = 0; j < i; j++)
+        out.println(pos[j].name + " " + pos[j].price + " " + endingRuble);
+
+        out.println("Каждый из гостей должен заплатить:" + " " + String.format("%.2f", amout) + " " + endingRuble);
 
         }
 
