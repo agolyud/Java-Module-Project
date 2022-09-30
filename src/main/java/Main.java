@@ -58,7 +58,6 @@ public class Main {
         out.println("Каждый из гостей должен заплатить:" + " " + String.format("%.2f", amout) + " " + endingRuble);
 
         }
-
     }
 
 
