@@ -21,7 +21,7 @@ public class Calculator {
 
         }
         int rouble = (int) Math.round(price);
-        System.out.println("Добавленные товары:\n" + food); //String.join
+        System.out.println("Добавленные товары:\n" + food);
         String message = "Каждый человек должен заплатить %.2f" + " " + declination(rouble);
         System.out.println(String.format(message, (price / people)));
     }
@@ -57,5 +57,4 @@ public class Calculator {
                 return "рублей";
         }
     }
-
 }
