@@ -22,7 +22,7 @@ public class Calculator {
         }
         System.out.println("Добавленные товары:\n" + food);
         double result = price / people;
-        String temp = "Каждый человек должен заплатить %.2f" + declination((int) Math.floor(result));
+        String temp = "Каждый человек должен заплатить %.2f" + getDeclination((int) Math.floor(result));
         System.out.println(String.format(temp, result));
     }
 
@@ -45,7 +45,7 @@ public class Calculator {
         }
     }
 
-    private static String declination(int rouble) {
+    private static String getDeclination(int rouble) {
 
         if ((rouble % 100 / 10) == 1){
             return " рублей.";
