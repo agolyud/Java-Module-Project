@@ -16,7 +16,7 @@ public class Calculator {
                 break;
             } else {
                 food = food + inputFood + "\n";
-                price = price + price();
+                price = price + getPrice();
             }
 
         }
@@ -27,7 +27,7 @@ public class Calculator {
     }
 
 
-    static double price() {
+    static double getPrice() {
         while (true) {
             System.out.println("Введите стоимость в формате: 'рубли.копейки' [10,45, 11,40]");
             double inputPrice = 0;
