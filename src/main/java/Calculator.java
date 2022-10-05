@@ -20,10 +20,10 @@ public class Calculator {
             }
 
         }
-        int rouble = (int) Math.round(price);
         System.out.println("Добавленные товары:\n" + food);
-        String message = "Каждый человек должен заплатить %.2f" + " " + declination(rouble);
-        System.out.println(String.format(message, (price / people)));
+        double result = price / people;
+        String temp = "Каждый человек должен заплатить %.2f" + declination((int) Math.floor(result));
+        System.out.println(String.format(temp, result));
     }
 
 
@@ -46,15 +46,19 @@ public class Calculator {
     }
 
     private static String declination(int rouble) {
-        switch (rouble % 10) {
+
+        if ((rouble % 100 / 10) == 1){
+            return " рублей.";
+        }
+        switch (rouble % 10){
             case 1:
-                return "рубль";
+                return " рубль.";
             case 2:
             case 3:
             case 4:
-                return "рубля";
+                return " рубля.";
             default:
-                return "рублей";
+                return " рублей.";
         }
     }
 }
